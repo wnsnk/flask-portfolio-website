@@ -8,7 +8,7 @@ from flask_bootstrap import Bootstrap5
 from dotenv import load_dotenv
 import os
 from operator import itemgetter
-from github_scraper import GithubRepositoryNameScraper
+from modules.github_scraper import GithubRepositoryNameScraper
 
 load_dotenv()
 
