@@ -6,7 +6,7 @@ from wtforms.validators import DataRequired, Email, Length
 from flask_bootstrap import Bootstrap5
 from dotenv import load_dotenv
 import os
-
+from operator import itemgetter
 from github_scraper import GithubRepositoryNameScraper
 
 load_dotenv()
@@ -15,6 +15,7 @@ FIRST_NAME = os.getenv('FIRST_NAME')
 LAST_NAME = os.getenv('LAST_NAME')
 OCCUPATION = os.getenv('OCCUPATION')
 GITHUB_USERNAME = os.getenv('GITHUB_USERNAME')
+GITHUB_USERNAME = ' [REMOVED]'
 
 
 full_name = f'{FIRST_NAME} {LAST_NAME}'
@@ -29,7 +30,12 @@ Bootstrap = Bootstrap5(app=app)
 
 @app.route("/")
 def homepage():
-    return render_template('index.html', name=full_name, occupation=OCCUPATION, github=github_url)
+    all_repos = github_scraper.offline_scrape_test()
+    # all_repos = github_scraper.scrape()
+    all_repos = sorted(all_repos, key=itemgetter('stars'))
+    all_repos.reverse()
+
+    return render_template('index.html', name=full_name, occupation=OCCUPATION, github=github_url, repositories=all_repos)
 
 
 if __name__ == '__main__':

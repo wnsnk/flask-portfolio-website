@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Astro v5.13.2">
-    <title>Product example · Bootstrap v5.3</title>
+    <title>portfolio · Bootstrap v5.3</title>
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/product/">
     <script src="/docs/5.3/assets/js/color-modes.js"></script>
     <link href="/docs/5.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -21,6 +21,10 @@
     <meta name="theme-color" content="#712cf9">
     <link href="product.css" rel="stylesheet">
     <style>
+        .add-bottom-padding {
+            padding-bottom: 12px;
+        }
+
         .bd-placeholder-img {
             font-size: 1.125rem;
             text-anchor: middle;
@@ -130,91 +134,30 @@
             <div class="product-device shadow-sm d-none d-md-block"></div>
             <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
         </div>
+
+
+        <!-- ALL PROJECTS -->
         <div class="container">
-            <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
-                <div class="text-bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-                    <div class="my-3 py-3">
-                        <h2 class="display-5">Another headline</h2>
-                        <p class="lead">And an even wittier subheading.</p>
-                    </div>
-                    <div class="bg-body-tertiary shadow-sm mx-auto"
-                        style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
-                </div>
-                <div class="bg-body-tertiary me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-                    <div class="my-3 p-3">
-                        <h2 class="display-5">Another headline</h2>
-                        <p class="lead">And an even wittier subheading.</p>
-                    </div>
-                    <div class="bg-dark shadow-sm mx-auto"
-                        style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
+            <div class="row gy-2">
+                {% for repository in repositories %}
+                <div class="col-12 col-sm-6 col-md-3 col-lg-3 add-bottom-padding">
+
+                    <div class="card h-100" style="width: 18rem;">
+                        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%2Fid%2FOIP.RukEho7ogJCHi9dikpQL3AHaGs%3Fpid%3DApi&f=1&ipt=5ebed415b4799c1a11802a2083992a3cd5bcd1916a0cd84abf1d9e12d0348c71&ipo=images"
+                            class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title"> {{ repository.name }} </h5>
+                            <p class="card-text"> {{ repository.stars }} ⭐ </p>
+                            <p class="card-text">{{ repository.description }}</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
-                <div class="bg-body-tertiary me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-                    <div class="my-3 p-3">
-                        <h2 class="display-5">Another headline</h2>
-                        <p class="lead">And an even wittier subheading.</p>
-                    </div>
-                    <div class="bg-dark shadow-sm mx-auto"
-                        style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
-                    </div>
-                </div>
-                <div class="text-bg-primary me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-                    <div class="my-3 py-3">
-                        <h2 class="display-5">Another headline</h2>
-                        <p class="lead">And an even wittier subheading.</p>
-                    </div>
-                    <div class="bg-body-tertiary shadow-sm mx-auto"
-                        style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
-                </div>
-            </div>
-            <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
-                <div class="bg-body-tertiary me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-                    <div class="my-3 p-3">
-                        <h2 class="display-5">Another headline</h2>
-                        <p class="lead">And an even wittier subheading.</p>
-                    </div>
-                    <div class="bg-body shadow-sm mx-auto"
-                        style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
-                    </div>
-                </div>
-                <div class="bg-body-tertiary me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-                    <div class="my-3 py-3">
-                        <h2 class="display-5">Another headline</h2>
-                        <p class="lead">And an even wittier subheading.</p>
-                    </div>
-                    <div class="bg-body shadow-sm mx-auto"
-                        style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
-                    </div>
-                </div>
-            </div>
-            <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
-                <div class="bg-body-tertiary me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-                    <div class="my-3 p-3">
-                        <h2 class="display-5">Another headline</h2>
-                        <p class="lead">And an even wittier subheading.</p>
-                    </div>
-                    <div class="bg-body shadow-sm mx-auto"
-                        style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
-                    </div>
-                </div>
-                <div class="bg-body-tertiary me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-                    <div class="my-3 py-3">
-                        <h2 class="display-5">Another headline</h2>
-                        <p class="lead">And an even wittier subheading.</p>
-                    </div>
-                    <div class="bg-body shadow-sm mx-auto"
-                        style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
-                    </div>
-                </div>
+
+                {% endfor %}
             </div>
         </div>
-    </main>
 
-    <script src="/docs/5.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-        class="astro-vvvwv3sm"></script>
 </body>
 
 </html>
