@@ -1,0 +1,15 @@
+/* target by class list, ID, or add a custom class (recommended) */
+.my-background-image {
+    background-image: url("https://wallpaperbat.com/python-code-wallpapers");
+    background-size: cover;
+    /* cover fills the area, maintaining aspect ratio */
+    background-position: center;
+    /* center the image */
+    background-repeat: no-repeat;
+    /* prevent tiling */
+    /* optional: overlay color for better text contrast */
+    background-blend-mode: overlay;
+    background-color: rgba(0, 0, 0, 0.35);
+    /* ensure a minimum height so the image shows */
+    min-height: 420px;
+}
