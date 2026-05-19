@@ -37,8 +37,8 @@ class ContactForm(FlaskForm):
 
 @app.route("/")
 def homepage():
-    all_repos = github_scraper.offline_scrape_test()
-    # all_repos = github_scraper.scrape()
+    # all_repos = github_scraper.offline_scrape_test()
+    all_repos = github_scraper.scrape()
     all_repos = sorted(all_repos, key=itemgetter('stars'))
     all_repos.reverse()
 

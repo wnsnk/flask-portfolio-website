@@ -1,3 +1,0 @@
-# TODO
-- about page
-
