@@ -2,3 +2,4 @@
 github.html
 .env
 .vscode
+__pycache__
