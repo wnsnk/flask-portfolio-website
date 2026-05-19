@@ -1,8 +1,9 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_wtf import FlaskForm
 from flask_wtf.csrf import CSRFProtect
-from wtforms import StringField, PasswordField, SubmitField, RadioField, SelectField, SelectMultipleField, BooleanField, SearchField
-from wtforms.validators import DataRequired, Email, Length
+from wtforms import StringField, PasswordField, SubmitField, RadioField, SelectField, SelectMultipleField, BooleanField, SearchField, EmailField
+from wtforms.validators import DataRequired, Length
+from flask_ckeditor import CKEditorField
 from flask_bootstrap import Bootstrap5
 from dotenv import load_dotenv
 import os
@@ -28,6 +29,12 @@ app.secret_key = os.getenv('FLASK_SECRET_KEY')
 Bootstrap = Bootstrap5(app=app)
 
 
+class ContactForm(FlaskForm):
+    email = EmailField('E-mail', validators=[DataRequired()])
+    message = CKEditorField('Message', validators=[DataRequired()])
+    submit = SubmitField('Contact me!')
+
+
 @app.route("/")
 def homepage():
     all_repos = github_scraper.offline_scrape_test()
@@ -38,7 +45,15 @@ def homepage():
     return render_template('index.html', name=full_name, occupation=OCCUPATION, github=github_url, repositories=all_repos)
 
 
+@app.route('/contact', methods=['GET', 'POST'])
+def contact():
+    contact_form = ContactForm()
+    if contact_form.validate_on_submit():
+
+        flash('Thanks for reaching out! I\'ll be in contact soon!')
+
+    return render_template('contact.html', form=contact_form, name=full_name)
+
+
 if __name__ == '__main__':
     app.run(debug=True)
-
-# merge
