@@ -61,6 +61,7 @@ class GithubRepositoryNameScraper():
             github_html = github_html.read()
 
         self.soup = BeautifulSoup(github_html, 'html.parser')
+        self.all_repositories = []
         repositories_div = self.soup.find(
             'div', id='user-repositories-list')
         print(type(repositories_div))
@@ -95,3 +96,10 @@ class GithubRepositoryNameScraper():
             print(last_updated)
             print('Stars:', star_amount)
             print('')
+            repository_dict = {'name': name,
+                               'description': description,
+                               'language': language,
+                               'last_updated': last_updated,
+                               'stars': star_amount}
+            self.all_repositories.append(repository_dict)
+        return self.all_repositories
