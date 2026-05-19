@@ -31,7 +31,7 @@ class GithubRepositoryNameScraper():
             try:
                 description = repository.find('p', class_='col-9').text
             except AttributeError:
-                description = None
+                description = ''
             else:
                 description = description.strip()
 
@@ -54,11 +54,15 @@ class GithubRepositoryNameScraper():
             except ValueError:
                 star_amount = 0
 
+            url = repository.find('a', href=True)['href']
+            url = f'https://github.com{url}'
+
             repository_dict = {'name': name,
                                'description': description,
                                'language': language,
                                'last_updated': last_updated,
-                               'stars': star_amount}
+                               'stars': star_amount,
+                               'url': url}
             self.all_repositories.append(repository_dict)
         return self.all_repositories
 
@@ -80,7 +84,7 @@ class GithubRepositoryNameScraper():
             try:
                 description = repository.find('p', class_='col-9').text
             except AttributeError:
-                description = None
+                description = ''
             else:
                 description = description.strip()
 
@@ -99,16 +103,20 @@ class GithubRepositoryNameScraper():
             else:
                 star_amount = star_amount.strip()
                 star_amount = int(star_amount)
+            url = repository.find('a', href=True)['href']
+            url = f'https://github.com{url}'
             print(name)
             print(description)
             print(language)
             print(last_updated)
             print('Stars:', star_amount)
+            print(url)
             print('')
             repository_dict = {'name': name,
                                'description': description,
                                'language': language,
                                'last_updated': last_updated,
-                               'stars': star_amount}
+                               'stars': star_amount,
+                               'url': url}
             self.all_repositories.append(repository_dict)
         return self.all_repositories
