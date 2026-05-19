@@ -121,12 +121,9 @@
             <div class="col-md-6 p-lg-5 mx-auto my-5">
                 <h1 class="display-3 fw-bold">Hi! My name is {{ name }}</h1>
                 <h3 class="fw-normal text-muted mb-3">I am a {{ occupation }}!</h3>
-                <div class="d-flex gap-3 justify-content-center lead fw-normal"> <a class="icon-link" href="#">
+                <div class="d-flex gap-3 justify-content-center lead fw-normal"> <a class="icon-link"
+                        href="{{ url_for('about_me') }}">
                         Learn more
-                        <svg class="bi" aria-hidden="true">
-                            <use xlink:href="#chevron-right"></use>
-                        </svg> </a> <a class="icon-link" href="#">
-                        Buy
                         <svg class="bi" aria-hidden="true">
                             <use xlink:href="#chevron-right"></use>
                         </svg> </a> </div>

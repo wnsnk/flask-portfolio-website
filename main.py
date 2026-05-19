@@ -49,10 +49,17 @@ def homepage():
 def contact():
     contact_form = ContactForm()
     if contact_form.validate_on_submit():
-
         flash('Thanks for reaching out! I\'ll be in contact soon!')
 
     return render_template('contact.html', form=contact_form, name=full_name)
+
+
+@app.route('/about')
+def about_me():
+    with open('about_me.txt', 'r') as about_me_txt:
+        about_me_txt = about_me_txt.read()
+    about_me_txt = about_me_txt.split('\n')
+    return render_template('about.html', message=about_me_txt, name=full_name)
 
 
 if __name__ == '__main__':
