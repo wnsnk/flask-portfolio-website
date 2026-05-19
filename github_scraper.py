@@ -35,8 +35,11 @@ class GithubRepositoryNameScraper():
             else:
                 description = description.strip()
 
-            language = repository.find(
-                'span', itemprop='programmingLanguage').text
+            try:
+                language = repository.find(
+                    'span', itemprop='programmingLanguage').text
+            except AttributeError:
+                language = None
 
             last_updated = repository.find('relative-time').text
 
@@ -46,7 +49,10 @@ class GithubRepositoryNameScraper():
                 star_amount = 0
             else:
                 star_amount = star_amount.strip()
+            try:
                 star_amount = int(star_amount)
+            except ValueError:
+                star_amount = 0
 
             repository_dict = {'name': name,
                                'description': description,
@@ -78,8 +84,11 @@ class GithubRepositoryNameScraper():
             else:
                 description = description.strip()
 
-            language = repository.find(
-                'span', itemprop='programmingLanguage').text
+            try:
+                language = repository.find(
+                    'span', itemprop='programmingLanguage').text
+            except AttributeError:
+                language = None
 
             last_updated = repository.find('relative-time').text
 
