@@ -6,7 +6,7 @@ This is a portfolio website I made with Flask for the assignment on Day 83 of th
 ## Installation
 - Clone repository, create virtual environment and install dependencies:
 ```bash
-git clone https://github.com/wnsnk/flask-portfolio-website
+git clone https://github.com/wnsnk/flask-portfolio-website.git
 cd flask-portfolio-website
 python3 -m venv .venv
 source .venv/bin/activate
